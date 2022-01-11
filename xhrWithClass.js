@@ -48,38 +48,21 @@ class MainContainer {
     }
     loadCustomer(e){
         console.log('Working' + e);
-
-        //get acces to customer in this method by assigning it to a variable. This is so that div can be accessed in inside function inside this method, loadCustomer().
         let div = this.customer;
         //xhr request
         const xhr = new XMLHttpRequest();
 
         //open data
-        xhr.open('GET', 'customer.json', true);
+        xhr.open('GET', 'text.txt', true);
 
         //load ajax
         xhr.onload = function(){
             if(this.status === 200){
-             /* console.log(this.responseText); */
-
-             //parse the json data to normal object first
-
-             const customer = JSON.parse(this.responseText);
-             console.log(customer);
-
-             //create html to store json data for person
-             const section = create('section');
-             section.classNAme = 'person';
-             section.innerHTML = 
-             `
-             <p>Customer ID: ${customer.id}</p>
-             <h4>Name: ${customer.name}</h4>
-             <p>Works at: ${customer.company}</p>
-             <p>Phone: ${customer.phone}</p>
-             `;
-             console.log(customer);
+                let p = create('p');
+                p.className = 'ajax2';
+                p.textContent = xhr.responseText;
+                div.appendChild(p);
               
-             div.appendChild(section);
             }
         }
 

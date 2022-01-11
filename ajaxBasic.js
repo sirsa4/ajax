@@ -11,7 +11,7 @@ function element(select){
 
 //create element function
 function create(html){
-    const crt = document.createElement(html);
+    const crt = document.createElement(crt);
     if(html){
         return crt;
     }
